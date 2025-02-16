@@ -57,16 +57,16 @@
 # Usually used in this format, without variable it the input value is not saved
 # input() always saves the value as a str data type
 
-var1 = 2
-var2 = input("insert anything:")
-print(var2)
-print(type(var2))
+# var1 = 2
+# var2 = input("insert anything:")
+# print(var2)
+# print(type(var2))
 
-var2 = int(var2)
-print(type(var2))
+# var2 = int(var2)
+# print(type(var2))
 
-sum = var1 + var2
-print(sum)
+# sum = var1 + var2
+# print(sum)
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
@@ -90,17 +90,38 @@ print(sum)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
 
-var1 = 2025
-print('Hello. Enter your name.')
-name = input()      #You need to insert the name inside the parenthesis and the parenthesis is empty so it makes sense
+# var1 = 2025
+# print('Hello. Enter your name.')
+# name = input()      #You need to insert the name inside the parenthesis and the parenthesis is empty so it makes sense
 
-print('Welcome', name , 'Enter your age')    # I didnt type the name and I didnt add the string on both sides of the "name"
-age = input() 
-age = int(age)
-year = 2025 - age
+# print('Welcome', name , 'Enter your age')    # I didnt type the name and I didnt add the string on both sides of the "name"
+# age = input() 
+# age = int(age)
+# year = 2025 - age
 
-print('You were born in' ,year, 'Enter your height')
-height = int(input())
+# print('You were born in' ,year, 'Enter your height')
+# height = int(input())
 
-two_m = 200 - height
-print("There are", two_m, "cm left until 2m.")
+# two_m = 200 - height
+# print("There are", two_m, "cm left until 2m.")
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# =     add
+# -     subtract
+# *     multiply
+# /     divide (result is a float)
+# //    integer division (result is an int)
+# %     modulus (remainder)
+# **    exponent (power)
+
+a = 10
+b = 3
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+print(a//b)
+print(a%b)
+print(a**b)

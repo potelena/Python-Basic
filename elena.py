@@ -7,10 +7,12 @@
 
 import streamlit as st
 
-st.title("Talk with THE POTATO")
-st.write("This is sample text")
+title = "Talk with THE POTATO"
+st.title(title)
+
+text = "This is the chatting place to have a nice chat with THE POTATO"
+st.write(text)
 
 name = st.text_input("Enter your name")
-st.write(name)
+st.write("Hello," ,name, ",lets talk to THE POTATO")
 
-st.write('Hello,' ,name, "Welcome")
