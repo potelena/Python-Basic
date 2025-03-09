@@ -57,11 +57,61 @@
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
-print("Enter number.")
-score = int(input())
+# print("Enter number.")
+# score = int(input())
 
-if(score % 2 == 0) :              #I couldnt do it because I didnt put do the remainder (%) at first
-    print("even")                 # I should focus more on the operations like the remainder (%) and the (==) to get the coding
+# if(score % 2 == 0) :              # I couldnt do it because I didnt put do the remainder (%) at first
+#     print("even")                 # I should focus more on the operations like the remainder (%) and the (==) to get the coding
 
-if(score % 2 == 1) :              
-    print ('odd')
+# if(score % 2 == 1) :              
+#     print ('odd')
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+# not   : If True, the result is reversed to False. If it is False, the result is reversed to True
+# and   : True if both sides are True, False if even one side is False
+# or    : False if both sides are False, True if at least one side is True
+# The exuxution order is executed in the order of not, and, or.
+
+# print(not(1 == 1))
+# print((1 != 5) and (10 <= 15))
+# print((6 != 6) or (5 == 3))
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+print("Enter two numbers.")
+num1 = int(input())
+num2 = int(input())
+
+print("What calculation do you want to run?")
+print("(1: Multiply, 2: Divide, 3: Add, 4:Subtract)")
+
+num3 = int(input())
+if(num3 == 1):
+    print("Selected Multiply,", num1, "*", num2, "=", num1*num2)
+elif(num3 ==2) :
+    print("Selected divide,", num1, "/", num2, "=", num1//num2)
+elif(num3 ==3) :
+    print("selected add,", num1, "+", num2, "=", num1+num2)
+elif(num3 == 4) :
+    print("Selected subtract,", num1, "-", num2, "=", num1-num2)
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+# Nested if
+# if can be nested
+
+# age = int(input("Enter your age: "))
+# is_member = input("Are you a member? (yes or no): ")
+
+# if(age >= 18) :
+#     if(is_member == "yes") :
+#         print("Welcome, adult member!")
+#     else :
+#         print("Adult non-member, please sign up.")
+# else :
+#     if(is_member == "yes") :
+#         print("Welcome, young member!")
+#     else : 
+#         print("Young non-member, please sign up.")
