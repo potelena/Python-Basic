@@ -7,12 +7,16 @@
 
 import streamlit as st
 
-title = "Talk with THE POTATO"
+title = "Clean Water"
 st.title(title)
 
-text = "This is the chatting place to have a nice chat with THE POTATO"
+text = """
+This is a game where you need to clean the water by pulling out dirty things and making sure its clean. 
+After you make it clean, you need to give it to the other people or animals.
+"""
 st.write(text)
 
-name = st.text_input("Enter your name")
-st.write("Hello," ,name, ",lets talk to THE POTATO")
+# name = st.text_input("Enter your name")
+# st.write("Hello," ,name, ",lets talk to THE POTATO")
 
+st.image("1.png")
