@@ -79,22 +79,22 @@
 # print((6 != 6) or (5 == 3))
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-print("Enter two numbers.")
-num1 = int(input())
-num2 = int(input())
+# print("Enter two numbers.")
+# num1 = int(input())
+# num2 = int(input())
 
-print("What calculation do you want to run?")
-print("(1: Multiply, 2: Divide, 3: Add, 4:Subtract)")
+# print("What calculation do you want to run?")
+# print("(1: Multiply, 2: Divide, 3: Add, 4:Subtract)")
 
-num3 = int(input())
-if(num3 == 1):
-    print("Selected Multiply,", num1, "*", num2, "=", num1*num2)
-elif(num3 ==2) :
-    print("Selected divide,", num1, "/", num2, "=", num1//num2)
-elif(num3 ==3) :
-    print("selected add,", num1, "+", num2, "=", num1+num2)
-elif(num3 == 4) :
-    print("Selected subtract,", num1, "-", num2, "=", num1-num2)
+# num3 = int(input())
+# if(num3 == 1):
+#     print("Selected Multiply,", num1, "*", num2, "=", num1*num2)
+# elif(num3 ==2) :
+#     print("Selected divide,", num1, "/", num2, "=", num1//num2)
+# elif(num3 ==3) :
+#     print("selected add,", num1, "+", num2, "=", num1+num2)
+# elif(num3 == 4) :
+#     print("Selected subtract,", num1, "-", num2, "=", num1-num2)
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

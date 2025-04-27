@@ -25,11 +25,15 @@ def get_base64_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode()
 
-# Path to the image file.
-image_path = "1.png"  # Change this to your image file path.
-# Encode the image to a base64 string.
-encoded_image = get_base64_image(image_path)
+# Path to the image files.
+image_path_1 = "1.png"  # Change this to your image file path.
+image_path_2 = "2.png"  # Change this to your second image file path.
 
+# Encode the images to base64 strings.
+encoded_image_1 = get_base64_image(image_path_1)
+encoded_image_2 = get_base64_image(image_path_2)
+
+# HTML code that displays the image with an overlay clickable area.
 # HTML code that displays the image with an overlay clickable area.
 html_code = f"""
 <!DOCTYPE html>
@@ -55,21 +59,29 @@ html_code = f"""
 </head>
 <body>
   <div class="container">
-    <!-- Display the image using the base64 encoded string -->
-    <img src="data:image/jpeg;base64,{encoded_image}" width="600" alt="Clickable Image">
+    <!-- Display the first image initially using the base64 encoded string -->
+    <img id="image" src="data:image/jpeg;base64,{encoded_image_1}" width="600" alt="Clickable Image">
     <!-- Div element that acts as the clickable overlay area -->
-    <div class="clickable-area" onclick="handleClick()"></div>
+    <div id="clickableArea" class="clickable-area" onclick="handleClick()"></div>
   </div>
   <script>
     // Function that is executed when the clickable area is clicked.
     function handleClick() {{
-      // Display a JavaScript alert when the area is clicked.
-      window.alert("The clickable area has been clicked!");
+      // Get the image element and the clickable area by their IDs
+      var image = document.getElementById("image");
+      var clickableArea = document.getElementById("clickableArea");
+      
+      // Change the image source to the second image (encoded_image_2)
+      image.src = "data:image/jpeg;base64,{encoded_image_2}";
+      
+      // Remove the clickable area (red box)
+      clickableArea.style.display = "none";
     }}
   </script>
 </body>
 </html>
 """
+
 
 # Render the custom HTML code within the Streamlit app.
 st.components.v1.html(html_code, height=700)

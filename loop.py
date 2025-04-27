@@ -30,5 +30,5 @@
 #     print(i)
 
 # print perfect squares up to 1000 print (x*x)
-for i in range(1, 101, 1) :
-    print(i*i)                  # I needed to change the range to 101 and 1
+# for i in range(1, 101, 1) :
+#     print(i*i)                  # I needed to change the range to 101 and 1
