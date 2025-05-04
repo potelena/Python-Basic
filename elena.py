@@ -58,25 +58,18 @@ html_code = f"""
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Display the first image initially using the base64 encoded string -->
-    <img id="image" src="data:image/jpeg;base64,{encoded_image_1}" width="600" alt="Clickable Image">
-    <!-- Div element that acts as the clickable overlay area -->
-    <div id="clickableArea" class="clickable-area" onclick="handleClick()"></div>
+    <div class="container" id="imageContainer">
+  <img id="image" src="data:image/png;base64,{encoded_image_1}" width="600">
+    <div id="initialBox" class="clickable-area" style="top: 240px; left: 230px;" onclick="onFirstClick()"></div>
   </div>
+
   <script>
-    // Function that is executed when the clickable area is clicked.
-    function handleClick() {{
-      // Get the image element and the clickable area by their IDs
-      var image = document.getElementById("image");
-      var clickableArea = document.getElementById("clickableArea");
-      
-      // Change the image source to the second image (encoded_image_2)
-      image.src = "data:image/jpeg;base64,{encoded_image_2}";
-      
-      // Remove the clickable area (red box)
-      clickableArea.style.display = "none";
-    }}
+    function onFirstClick() {{
+      // Change the image
+      document.getElementById("image").src = "data:image/png;base64,{encoded_image_2}";
+      // Remove the initial red box
+      document.getElementById("initialBox").remove();
+    }});
   </script>
 </body>
 </html>
@@ -85,3 +78,5 @@ html_code = f"""
 
 # Render the custom HTML code within the Streamlit app.
 st.components.v1.html(html_code, height=700)
+
+
