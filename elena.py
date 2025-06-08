@@ -1,9 +1,7 @@
 # To run, copy and paste the code below
 # streamlit run elena.py --server.port 8080 --server.address 0.0.0.0
-
 # streamlit official doc link:
 # https://docs.streamlit.io/
-
 
 import streamlit as st
 import base64
@@ -33,7 +31,6 @@ image_path_2 = "2.png"  # Change this to your second image file path.
 encoded_image_1 = get_base64_image(image_path_1)
 encoded_image_2 = get_base64_image(image_path_2)
 
-# HTML code that displays the image with an overlay clickable area.
 # HTML code that displays the image with an overlay clickable area.
 html_code = f"""
 <!DOCTYPE html>
@@ -69,7 +66,33 @@ html_code = f"""
       document.getElementById("image").src = "data:image/png;base64,{encoded_image_2}";
       // Remove the initial red box
       document.getElementById("initialBox").remove();
-    }});
+           // Define positions for 7 new red boxes
+      const positions = [
+        {{ top: 50, left: 100, width: 10, height: 60}},
+        {{ top: 179, left: 50, width: 55, height: 55  }},
+        {{ top: 173, left: 227, width: 65, height: 57 }},
+        {{ top: 240, left: 90, width: 10, height: 60 }},
+        {{ top: 210, left: 250, width: 10, height: 60 }},
+        {{ top: 40, left: 100, width: 10, height: 60 }},
+        {{ top: 50, left: 200, width: 10, height: 60 }}
+      ];
+
+  const container = document.getElementById("imageContainer");
+
+      // Add 7 new clickable boxes
+      positions.forEach((pos, index) => {{
+        const div = document.createElement("div");
+        div.className = "clickable-area";
+        div.style.top = pos.top + "px";
+        div.style.left = pos.left + "px";
+        div.style.width = pos.width + "px";
+        div.style.height = pos.height + "px";
+        div.onclick = function () {{
+          alert("You clicked box #" + (index + 1));
+        }};
+        container.appendChild(div);
+      }});
+    }}
   </script>
 </body>
 </html>
@@ -78,5 +101,3 @@ html_code = f"""
 
 # Render the custom HTML code within the Streamlit app.
 st.components.v1.html(html_code, height=700)
-
-
