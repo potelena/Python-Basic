@@ -32,6 +32,9 @@ encoded_image_1 = get_base64_image(image_path_1)
 encoded_image_2 = get_base64_image(image_path_2)
 
 # HTML code that displays the image with an overlay clickable area.
+
+image_path_clean = "clean.png"
+encoded_image_clean = get_base64_image(image_path_clean)
 html_code = f"""
 <!DOCTYPE html>
 <html>
@@ -44,14 +47,16 @@ html_code = f"""
     }}
     /* Clickable area overlay positioned over the image */
     .clickable-area {{
-      position: absolute;
+    position: absolute;
+    cursor: pointer;
+  background-color: transparent;
       top: 240px;         /* Distance from the top of the container */
       left: 230px;       /* Distance from the left of the container */
       width: 145px;      /* Width of the clickable area */
       height: 50px;     /* Height of the clickable area */
       cursor: pointer;   /* Change the mouse pointer to indicate clickable area */
-      border: 2px solid red; /* Red border to visually identify the clickable area */
-    }}
+      border: none; /* Red border to visually identify the clickable area */
+      }}
   </style>
 </head>
 <body>
@@ -68,28 +73,40 @@ html_code = f"""
       document.getElementById("initialBox").remove();
            // Define positions for 7 new red boxes
       const positions = [
-        {{ top: 50, left: 100, width: 10, height: 60}},
+        {{ top: 170, left: 520, width: 30, height: 30 }},
         {{ top: 179, left: 50, width: 55, height: 55  }},
         {{ top: 173, left: 227, width: 65, height: 57 }},
-        {{ top: 240, left: 90, width: 10, height: 60 }},
-        {{ top: 210, left: 250, width: 10, height: 60 }},
-        {{ top: 40, left: 100, width: 10, height: 60 }},
-        {{ top: 50, left: 200, width: 10, height: 60 }}
+        {{ top: 240, left: 110, width: 70, height: 60 }},
+        {{ top: 250, left: 215, width: 80, height: 60 }},
+        {{ top: 250, left: 340, width: 60, height: 50 }},
+        {{ top: 200, left: 410, width: 50, height: 60 }}
       ];
 
   const container = document.getElementById("imageContainer");
+   const cleanImageSrc = "data:image/png;base64,{encoded_image_clean}";
 
       // Add 7 new clickable boxes
-      positions.forEach((pos, index) => {{
+      positions.forEach((pos) => {{
         const div = document.createElement("div");
         div.className = "clickable-area";
         div.style.top = pos.top + "px";
         div.style.left = pos.left + "px";
         div.style.width = pos.width + "px";
         div.style.height = pos.height + "px";
+
         div.onclick = function () {{
-          alert("You clicked box #" + (index + 1));
-        }};
+         const img = document.createElement("img");
+        img.src = cleanImageSrc;
+        img.style.position = "absolute";
+        img.style.top = pos.top + "px";
+        img.style.left = pos.left + "px";
+        img.style.width = pos.width + "px";
+        img.style.height = pos.height + "px";
+        container.appendChild(img);
+        div.remove(); 
+      }};
+      
+
         container.appendChild(div);
       }});
     }}
